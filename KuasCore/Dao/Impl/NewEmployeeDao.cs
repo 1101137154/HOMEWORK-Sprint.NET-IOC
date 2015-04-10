@@ -12,6 +12,7 @@ namespace KuasCore.Dao.Impl
     class NewEmployeeDao : GenericDao<Employee>, IEmployeeDao
     {
 
+        List<Employee> employees = new List<Employee>();
 
         override protected IRowMapper<Employee> GetRowMapper()
         {
@@ -21,33 +22,40 @@ namespace KuasCore.Dao.Impl
         public IList<Employee> GetAllEmployees()
         {
 
-            List<Employee> employees = new List<Employee>();
 
             Employee aa = new Employee();
             aa.Name = "AA";
-            aa.Id = "001";
+            aa.Id = "0011";
             aa.Age = 33;
             employees.Add(aa);
 
             Employee bb = new Employee();
-            aa.Name = "BB";
-            aa.Id = "002";
-            aa.Age = 25;
+            bb.Name = "BBBBB";
+            bb.Id = "002";
+            bb.Age = 25;
             employees.Add(bb);
+
+            Employee cc = new Employee();
+            cc.Name = "CC";
+            cc.Id = "0022";
+            cc.Age = 22;
+            employees.Add(cc);
 
             return employees;
         }
 
         public Employee GetEmployeeById(string id)
         {
-            //Employee employee = employees.Find(x => x.Id.Contains(id));
+            Employee employee = employees.Find(x => x.Id.Equals(id));
+            /*
+            if(id.Equals("002")){
+                Employee cc = new Employee();
+                cc.Name = "CC";
+                cc.Id = "001";
+                cc.Age = 33;
+            }*/
 
-            Employee cc = new Employee();
-            cc.Name = "CC";
-            cc.Id = "001";
-            cc.Age = 33;
-
-            return cc;
+            return employee;
         }
     }
 }
