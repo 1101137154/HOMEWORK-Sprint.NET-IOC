@@ -35,7 +35,7 @@ namespace KuasCoreTests.Dao
         public void TestEmployeeDao_GetEmployeeById()
         {
             EmployeeDao.GetAllEmployees();
-            Employee empolyee = EmployeeDao.GetEmployeeById("0011");
+            Employee empolyee = EmployeeDao.GetEmployeeById("000");
             Assert.IsNotNull(empolyee);
             Console.WriteLine("員工編號為 = " + empolyee.Id);
             Console.WriteLine("員工姓名為 = " + empolyee.Name);

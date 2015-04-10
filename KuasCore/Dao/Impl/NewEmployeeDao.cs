@@ -47,6 +47,14 @@ namespace KuasCore.Dao.Impl
         public Employee GetEmployeeById(string id)
         {
             Employee employee = employees.Find(x => x.Id.Equals(id));
+
+            if (employee == null)
+            {
+                employee = new Employee();
+                employee.Name = "Empty Employee";
+                employee.Id = "0";
+                employee.Age = 0;
+            }
             /*
             if(id.Equals("002")){
                 Employee cc = new Employee();
